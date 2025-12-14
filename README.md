@@ -10,7 +10,7 @@ npm init -y
 - **Instalar dependencias (runtime)**: instala Express, Axios y dotenv:
 
 ```powershell
-npm install express axios dotenv
+npm install express cors axios dotenv typeorm pg
 ```
 
 - **Instalar dependencias de desarrollo**: TypeScript, herramientas para ejecutar/recargar en caliente y tipos:
