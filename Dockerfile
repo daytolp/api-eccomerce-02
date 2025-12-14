@@ -29,3 +29,8 @@ EXPOSE 3000
 
 # Start the app. Ensure this path matches your build output (dist/app.js)
 CMD ["node", "dist/app.js"]
+
+#comando para construir la imagen
+#docker build -t ejemplo-api-03 .
+#comando para ejecutar la imagen, pero primero hay que dockerirzar la bd de postgres
+#docker run --rm -p 3000:3000 --env-file .env ejemplo-api-03
