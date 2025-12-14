@@ -12,6 +12,7 @@ export class UserService {
     async getAllUsers(): Promise<User[]> {
         // Lógica para obtener todos los usuarios desde la base de datos
         const users = await this.repo.find();
+        console.log("users: ", users);
         return users;
     }
 }

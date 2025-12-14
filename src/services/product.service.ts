@@ -1,6 +1,7 @@
 import { ProductExternalService } from './product-external.service.js';
 import { ProductRepository } from './../repositories/product.repository.js';
 import { Product } from './../entities/product.js';
+import { HttpError } from '../errors/http-error.js';
 
 const productRepository = new ProductRepository();
 const productExternalService = new ProductExternalService();
@@ -8,11 +9,9 @@ const productExternalService = new ProductExternalService();
 export class ProductService {
 
     async getAllProducts(page: number, size: number, nativa: boolean = false): Promise<Product[]> {
-        if (page === undefined || size === undefined) {
-            throw new Error("Parámetros de paginación son requeridos");
-        }
+
         if (page < 1 || size < 1) {
-            throw new Error("Parámetros de paginación inválidos");
+            throw new HttpError(400, "Parámetros de paginación inválidos");
         }
 
         if (nativa) {
@@ -24,6 +23,7 @@ export class ProductService {
     }
 
     async getAllProductsNativa(page: number, size: number): Promise<Product[]> {
+        console.log("Usando consulta nativa");
         const products = await productRepository.findAllNativa(page, size);
         return products;
     }

@@ -15,7 +15,7 @@ export class ProductRepository {
       async findAllNativa(page: number, size: number): Promise<Product[]> {
           const skip = (page - 1) * size;
           return this.repo.query(
-              'SELECT * FROM product LIMIT $1 OFFSET $2',
+              'SELECT * FROM products LIMIT $1 OFFSET $2',
               [size, skip]
           );
       }

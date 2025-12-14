@@ -2,6 +2,7 @@ import { DataSource } from "typeorm";
 import { Product } from "../entities/product.js";
 import { Order } from "../entities/order.js";
 import { User } from "../entities/user.js";
+console.log("host", process.env.DB_HOST);
 
 
 export const AppDataSource = new DataSource({   
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER!,
   password: process.env.DB_PASS!,
   database: process.env.DB_NAME!,
-  synchronize: true,
+  synchronize: false,
   logging: true,
   entities: [User, Product, Order]
 });

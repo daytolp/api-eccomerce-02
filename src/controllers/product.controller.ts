@@ -13,10 +13,13 @@ export class ProductController {
             const nativa = req.query.nativa === 'true';
             
             const products = await productService.getAllProducts(page, size, nativa);
-            res.json(products);
-        } catch (error) {
+            res.status(200).json(products);
+        } catch (error: any) {
             console.error("Error al obtener los productos:", error);
-            res.status(500).json({ message: "Error al obtener los productos" });
+            if (error && typeof error.statusCode === 'number') 
+                res.status(error.statusCode).json({ message: error.message });
+            else
+                res.status(500).json({ message: "Error al obtener los productos" });
         }
     }
 
