@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { ProductController } from "../controllers/product.controller.js"
-import { UserController } from "../controllers/User.controller.js"
+import { UserController } from "../controllers/user.controller.js"
 
 const userController = new UserController();
 const productController = new ProductController();
