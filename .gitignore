@@ -31,3 +31,6 @@ Thumbs.db
 # Optional lockfile
 package-lock.json
 yarn.lock
+
+
+coverage/

@@ -4,9 +4,10 @@ WORKDIR /usr/src/app
 
 # Install build deps (use package-lock if present for reproducible builds)
 COPY package*.json ./
+# Install all dependencies including dev dependencies
 RUN npm ci
 
-# Copy source and build
+# Copy source files and build
 COPY . .
 RUN npm run build
 
